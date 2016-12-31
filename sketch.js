@@ -2,7 +2,6 @@ var bird;
 var pipes = [];
 var score = 0;
 var high_score = 0;
-var height = 550;
 
 var p5_header = function(sketch)
 {
@@ -14,7 +13,7 @@ var p5_header = function(sketch)
 
 	sketch.draw = function()
 	{
-		sketch.background(200);
+		sketch.background(sketch.color(0, 255, 0));
 		sketch.strokeWeight(2);
 		sketch.fill(255);
 		sketch.textSize(18);
@@ -39,16 +38,8 @@ var p5_game = function(sketch)
 	{
 		sketch.background(100);
 
-		/*
-		fill(50);
-		textSize(16);
-		textAlign(RIGHT, RIGHT);
-		text("heasdfasdfasddfasdfasdfadfasdfasy", width, 15);
-		*/
-
 		bird.show(sketch);
 		bird.update(sketch);
-		// bird.up();
 
 		for(var i = 0; i < pipes.length; i++)
 		{
@@ -56,7 +47,6 @@ var p5_game = function(sketch)
 			pipes[i].update(sketch);
 			if(pipes[i].hits(sketch, bird))
 			{
-				// console.log("bird hit pipe!");
 				score = -1;
 			}
 			else if(pipes[i].is_offscreen(sketch))
@@ -71,16 +61,10 @@ var p5_game = function(sketch)
 		{
 			pipes.push(new Pipe(sketch));
 		}
-		/*
-		pipes[0].show();
-		pipes[0].update();
-		*/
-
 	};
 
 	keyPressed = function()
 	{
-		console.log("in key pressed");
 		if(sketch.key == ' ')
 		{
 			bird.up(sketch);
@@ -90,4 +74,3 @@ var p5_game = function(sketch)
 
 var header_sketch = new p5(p5_header);
 var game_sketch = new p5(p5_game);
-

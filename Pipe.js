@@ -34,11 +34,4 @@ function Pipe(sketch)
 	{
 		return (this.highlight = (bird.x >= this.x) && (bird.x <= this.x + this.width_of_pipe) && ((bird.y >= 0 && bird.y <= this.gap_top) || (bird.y <= sketch.height && bird.y >= this.gap_top + this.gap_space)));
 	}
-
-/*
-	this.color_red = function()
-	{
-		// fill
-	}
-*/
 }

@@ -11,13 +11,12 @@ function Bird(sketch)
 
 	this.show = function(sketch)
 	{
-		sketch.fill(255);
+		sketch.fill(sketch.color(0, 0, 255));
 		sketch.ellipse(this.x, this.y, 32, 32);
 	}
 	
 	this.up = function(sketch)
 	{
-		// console.log("in up");
 		this.velocity += this.lift;
 	}
 
@@ -34,6 +33,4 @@ function Bird(sketch)
 
 		this.y = Math.max(Math.min(this.y, sketch.height), 0);
 	}
-
-
 }
