@@ -1,38 +1,38 @@
 /* Bird object */
 
-function Bird() 
+function Bird(sketch) 
 {
-	this.y = height / 2;
+	this.y = sketch.height / 2;
 	this.x = 50;
 
 	this.gravity = .781;
 	this.lift = -12;
 	this.velocity = 0;
 
-	this.show = function()
+	this.show = function(sketch)
 	{
-		fill(255);
-		ellipse(this.x, this.y, 32, 32);
+		sketch.fill(255);
+		sketch.ellipse(this.x, this.y, 32, 32);
 	}
 	
-	this.up = function()
+	this.up = function(sketch)
 	{
 		// console.log("in up");
 		this.velocity += this.lift;
 	}
 
-	this.update = function()
+	this.update = function(sketch)
 	{
 		this.velocity += this.gravity;
 		this.velocity *= .95;
 		this.y += this.velocity;
 
-		if(this.y > height || this.y < 0)
+		if(this.y > sketch.height || this.y < 0)
 		{
 			this.velocity = 0;
 		}
 
-		this.y = Math.max(Math.min(this.y, height), 0);
+		this.y = Math.max(Math.min(this.y, sketch.height), 0);
 	}
 
 
