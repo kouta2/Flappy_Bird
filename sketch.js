@@ -1,6 +1,7 @@
 var bird;
 var pipes = [];
 var score = 0;
+var high_score = 0;
 var height = 550;
 
 var p5_header = function(sketch)
@@ -19,7 +20,7 @@ var p5_header = function(sketch)
 		sketch.textSize(18);
 		sketch.textAlign(sketch.LEFT, sketch.TOP);
 		var temp_score = Math.max(score, 0);
-		sketch.text("Score: " + temp_score, 0, 0);
+		sketch.text("Score: " + temp_score + "\t High Score: " + high_score, 0, 0);
 
 	};
 };
@@ -61,6 +62,7 @@ var p5_game = function(sketch)
 			else if(pipes[i].is_offscreen(sketch))
 			{
 				score += 1;
+				high_score = Math.max(high_score, score);
 				pipes.splice(i, 1);
 			}		
 		}
