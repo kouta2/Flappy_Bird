@@ -20,7 +20,6 @@ var p5_header = function(sketch)
 		sketch.textAlign(sketch.LEFT, sketch.TOP);
 		var temp_score = Math.max(score, 0);
 		sketch.text("Score: " + temp_score + "\t High Score: " + high_score, 0, 0);
-
 	};
 };
 

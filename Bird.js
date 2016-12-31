@@ -8,11 +8,12 @@ function Bird(sketch)
 	this.gravity = .781;
 	this.lift = -12;
 	this.velocity = 0;
+	this.radius = 32
 
 	this.show = function(sketch)
 	{
 		sketch.fill(sketch.color(0, 0, 255));
-		sketch.ellipse(this.x, this.y, 32, 32);
+		sketch.ellipse(this.x, this.y, this.radius, this.radius);
 	}
 	
 	this.up = function(sketch)
